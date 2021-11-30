@@ -925,7 +925,7 @@ func (p *PHYPayload) calculateDownlinkDataMIC(macVersion MACVersion, confFCnt ui
 
 // Encrypt256Payload encrypts the FRMPayload (slice of bytes).
 // Note that EncryptFRMPayload is used for both encryption and decryption.
-func Encrypt256Payload(key AES256Key, uplink bool, devAddr lorawan.DevAddr, fCnt uint32, data []byte) ([]byte, error) {
+func Encrypt256Payload(key AES256Key, uplink bool, devAddr DevAddr, fCnt uint32, data []byte) ([]byte, error) {
 	pLen := len(data)
 	if pLen%16 != 0 {
 		// append with empty bytes so that len(data) is a multiple of 16
